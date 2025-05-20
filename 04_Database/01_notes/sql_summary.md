@@ -25,10 +25,12 @@
   - 데이터 무결성 및 일관성 유지
 
 ## 2. SQL 명령어 종류
- * DDL(Data Definition Language) : 테이블 구조 정의
- * DML(Data Manipulation Language) : 데이터 조작
- * DCL(Data Control Language) : 권한 제어
- * TCL(Transaction Control Language) : 트랜잭션 제어
+| 분류 | 이름 (영문) | 주요 기능 |
+|------|--------------|------------|
+| DDL | Data Definition Language | 데이터 구조 정의 (테이블, 뷰 등) |
+| DML | Data Manipulation Language | 데이터 조회 및 조작 (조회, 삽입, 수정, 삭제) |
+| DCL | Data Control Language | 사용자 권한 제어 |
+| TCL | Transaction Control Language | 트랜잭션 제어 |
 
 ## 3. 각 명령어별 설명 및 예시
  ### 3.1 DDL(데이터 정의어)
@@ -95,3 +97,20 @@
    ```sql
    ROLLBACK;
    ```
+
+ ## 4. 비교 요약
+
+| 분류 | 설명 | 예시 명령어 |
+|------|------|--------------|
+| DDL | 데이터 구조 정의 | `CREATE`, `ALTER`, `DROP` |
+| DML | 데이터 조작 | `SELECT`, `INSERT`, `UPDATE`, `DELETE` |
+| DCL | 권한 관리 | `GRANT`, `REVOKE` |
+| TCL | 트랜잭션 관리 | `COMMIT`, `ROLLBACK`, `SAVEPOINT` |
+
+---
+
+ ## 🔍 참고 팁
+
+ - DDL, DCL 명령어는 실행 시 자동으로 COMMIT 처리됨 (되돌리기 불가)
+ - DML은 트랜잭션 처리를 통해 COMMIT / ROLLBACK 가능
+ - 실무에서는 DML이 가장 자주 사용됨
