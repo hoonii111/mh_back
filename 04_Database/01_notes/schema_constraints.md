@@ -10,15 +10,17 @@
 
 ### 1. `PRIMARY KEY`
 
-- **역할**: 테이블의 각 행을 고유하게 식별할 수 있는 컬럼
-- **특징**:
-  - 중복 불가
+- **역할**  
+  - 테이블의 각 행을 고유하게 식별할 수 있는 칼럼  
+- **특징**
+  - 중복 불가(유일성 보장)
+  - 검색 속도 향상
   - `NOT NULL`이 자동으로 적용됨
 
 ```sql
 CREATE TABLE users (
     id INT PRIMARY KEY,
-    name VARCHAR(50)
+    username VARCHAR(50)
 );
 ```
 
@@ -26,13 +28,15 @@ CREATE TABLE users (
 
 ### 2. `AUTO_INCREMENT`
 
-- **역할**: 숫자형 컬럼의 값을 자동으로 1씩 증가시킴
-- **사용 조건**: 일반적으로 `PRIMARY KEY` 또는 `UNIQUE` 컬럼에 사용
+- **역할**  
+  - 숫자형 칼럼의 값을 자동으로 1씩 증가시킴
+- **사용 조건**  
+  - 일반적으로 `PRIMARY KEY` 또는 `UNIQUE` 칼럼에 사용
 
 ```sql
 CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50)
 );
 ```
 
@@ -40,12 +44,14 @@ CREATE TABLE users (
 
 ### 3. `NOT NULL`
 
-- **역할**: 해당 컬럼은 `NULL` 값을 가질 수 없도록 제한
+- **역할**  
+  - 해당 칼럼은 `NULL` 값을 가질 수 없도록 제한
+  - 해당 칼럼에는 항상 값이 존재해야 함.
 
 ```sql
-CREATE TABLE users (
-    id INT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+	CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL
 );
 ```
 
@@ -53,11 +59,13 @@ CREATE TABLE users (
 
 ### 4. `UNIQUE`
 
-- **역할**: 해당 컬럼의 값은 중복될 수 없음
+- **역할**  
+  - 해당 칼럼의 값은 중복된 값을 허용하지 않음.
 
 ```sql
 CREATE TABLE users (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE
 );
 ```
@@ -69,12 +77,15 @@ CREATE TABLE users (
 
 ### 5. `DEFAULT`
 
-- **역할**: 값이 입력되지 않았을 경우 기본값을 자동으로 설정
+- **역할**  
+  - 값이 입력되지 않았을 경우 기본값을 자동으로 설정
 
 ```sql
 CREATE TABLE users (
-    id INT PRIMARY KEY,
-    status VARCHAR(10) DEFAULT 'active'
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    is_business VARCHAR(10) DEFAULT False
 );
 ```
 
@@ -82,12 +93,16 @@ CREATE TABLE users (
 
 ### 6. `CHECK`
 
-- **역할**: 특정 조건을 만족하는 데이터만 입력 가능하도록 제한
-- **MySQL 8.0 이상**에서 공식 지원
+- **역할**  
+  - 해당 칼럼에 저장될 수 있는 값의 범위나 조건을 지정
+
 
 ```sql
 CREATE TABLE users (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    is_business VARCHAR(10) DEFAULT False,
     age INT CHECK (age >= 18)
 );
 ```
