@@ -4,9 +4,11 @@
 
 ## 1. 모델이란?
 
-- Django의 모델(Model)은 데이터베이스와 상호작용하는 데이터 구조를 정의하는 구성 요소입니다.
-- `django.db.models.Model` 클래스를 상속받아 정의하며, Django ORM(Object-Relational Mapping)을 통해 SQL 없이 데이터 조작이 가능합니다.
-- 각 앱의 `models.py` 파일 내에서 정의합니다.
+ - Django의 모델(Model) = 데이터베이스와 상호작용하는 데이터 구조를 정의하는 구성 요소
+ - `django.db.models.Model` 클래스를 상속받아 정의하며, Django ORM(Object-Relational Mapping)을 통해 SQL 없이 데이터 조작이 가능
+ - 각 앱의 `models.py` 파일 내에서 정의
+
+---
 
 ## 2. 모델 기본 구조
 
@@ -29,6 +31,8 @@ class Article(models.Model):
  - **auto_now=True** : 수정 시 자동 저장  
  - **__str__** : 객체를 사람이 읽기 쉽게 문자열로 표현  
 
+---
+
 ## 3. 주요 필드 타입
 
 | 필드 클래스          | 설명                       |
@@ -45,6 +49,8 @@ class Article(models.Model):
 | `URLField`      | URL 유효성 검사 포함            |
 | `FileField`     | 파일 업로드 필드                |
 | `ImageField`    | 이미지 파일 업로드 (`Pillow` 필요) |
+
+---
 
 ## 4. 모델 간 관계 설정
 
@@ -66,7 +72,10 @@ class Author(models.Model):
     books = models.ManyToManyField(Book)
 ```
 
+---
+
 ## 5. Meta 클래스 (모델 옵션)
+
  - 모델 내부에 **class Meta**를 정의하여 추가 설정 가능  
 ```python
 class Article(models.Model):
@@ -80,6 +89,8 @@ class Article(models.Model):
  - **ordering** : 기본 정렬 순서
  - **verbose_name** : 단수 이름
  - **verbose_name_plural** : 복수 이름
+
+---
 
 ## 6. Migration
  - 모델을 정의하거나 수정한 후, 이를 데이터베이스에 반영하기 위해 마이그레이션을 수행
@@ -95,6 +106,8 @@ python manage.py showmigrations   # 마이그레이션 적용 현황 확인
 1. 모델 정의 or 수정
 2. **makemigrations** -> 변경 사항을 담은 파일 생성
 3. **migrate** -> 데이터베이스에 실제 반영
+
+---
 
 ## 7. ORM을 통한 객체 조작
 
