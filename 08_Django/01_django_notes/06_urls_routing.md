@@ -4,8 +4,8 @@
 
 ## 1. URL 라우팅이란?
 
-- URLconf(URL configuration)는 사용자의 요청 URL을 적절한 뷰(view)로 연결해주는 역할을 합니다.
-- Django에서는 각 앱 또는 프로젝트 단위로 `urls.py` 파일을 사용하여 URL 경로를 정의합니다.
+- URLconf(URL configuration)는 사용자의 요청 URL을 적절한 뷰(view)로 연결해주는 역할
+- Django에서는 각 앱 or 프로젝트 단위로 `urls.py` 파일을 사용하여 URL 경로 정의
 
 ---
 
