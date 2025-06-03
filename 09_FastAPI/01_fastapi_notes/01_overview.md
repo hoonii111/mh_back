@@ -3,10 +3,10 @@
 
 ## 1. 개요
 
-- FastAPI는 Python 기반의 **비동기 웹 프레임워크**
+- FastAPI는 Python 기반의 **비동기 웹 프레임워크(Starlette)**
 - 빠르고, 현대적인(Modern), 직관적인 API 개발 가능
 - Swagger, ReDoc 문서 자동 제공
-- **Pydantic** 기반의 데이터 검증 지원
+- 데이터 검증/설정을 위해 **Pydantic** 라이브러리 사용
 - Starlette 위에서 동작 → 비동기 처리 지원
 
 ## 2. 특징
@@ -68,5 +68,3 @@ FastAPI 실행 후 아래 주소 접속:
 - ReDoc UI: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
 ---
-
-다음: [02_project_setup.md](./02_project_setup.md)

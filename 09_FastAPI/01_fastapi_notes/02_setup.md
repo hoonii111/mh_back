@@ -70,5 +70,3 @@ pip freeze > requirements.txt
 - `app.main:app` 형태로 지정
 
 ---
-
-다음: [03_routing.md](./03_routing.md)
