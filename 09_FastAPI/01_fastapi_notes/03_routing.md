@@ -24,6 +24,7 @@ def read_item(item_id: int):
     return {"item_id": item_id}
 ```
 
+- 가장 간단한 형태의 라우팅 = HTTP GET 메서드 사용
 - `/` : 루트 경로에서 "Hello, FastAPI!" 반환  
 - `/items/{item_id}` : 동적 경로 파라미터 사용
 
